@@ -219,37 +219,20 @@ class App {
         const timer = Date.now() * 0.01
         app.sphereGroup.rotation.y -= 0.002
         app.smallSphere.position.set(
-            Math.cos( timer * 0.1 ) * 30,
-            Math.abs( Math.cos( timer * 0.2 ) ) * 20,
-            Math.sin( timer * 0.1 ) * 30
+            Math.cos(timer * 0.1) * 30,
+            Math.abs(Math.cos(timer * 0.2) ) * 20,
+            Math.sin(timer * 0.1) * 30
         )
-        app.smallSphere.rotation.y = ( Math.PI / 2 ) - timer * 0.1
+        app.smallSphere.rotation.y = (Math.PI / 2) - timer * 0.1
         app.smallSphere.rotation.z = timer * 0.8
 
         app.renderer.render(app.scene, app.camera)
     }
 
 
-    // Scene builder
-    await app.build().then(r => console.log('Init scene complete'))
+    // Scene build
+    await app.build()
     app.animate()
     app.resize()
     window.onresize = app.resize
 })()
-
-
-// // Stuff
-// const geometry = new THREE.BoxGeometry(1, 1, 1)
-// const material = new THREE.MeshBasicMaterial({
-//     color: 0x00ff00
-// })
-// const cube = new THREE.Mesh(geometry, material)
-// scene.add(cube)
-//
-
-//
-// const directionalLight = new THREE.DirectionalLight( 0xffffff, 1 )
-// // scene.add(directionalLight)
-//
-// const hemisphereLight = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 )
-// // scene.add(hemisphereLight)
